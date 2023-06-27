@@ -60,19 +60,52 @@ header{
 #projet-1{
     width:100%;
     height:700px;
-    background:url(img/bg3.jpg) no-repeat center center fixed;
+    background: url(img/bg3.jpg) no-repeat center center fixed;
     background-size:cover;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.project-txt{
+    width:40%;
+    height:35%;
+    text-align: center;
+    justify-content: center;
+    padding:30px 10px;
+    margin-left:30px;
+    color:black;
+    background:rgba(255, 255, 255, 0.6)
+}
+.project-img{
+    width:40%;
+    height:40%;
+    margin-right:40px;
+}
+.project-img img{
+    width:600px;
+    height:300px;
 }
 #motiv-1{
     width:100%;
     height:400px;
     background:white;
 }
+.motiv{
+    width:80%;
+    height:300px;
+    color:black;
+    padding-top:90px;
+    margin:auto;
+    text-align: center;
+}
 #projet-2{
     width:100%;
     height:700px;
     background:url(img/bg4.jpg) no-repeat center center fixed;
     background-size:cover;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
 }
 #motiv-2{
     width:100%;
@@ -84,6 +117,9 @@ header{
     height:700px;
     background:url(img/bg5.jpg) no-repeat center center fixed;
     background-size:cover;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
 }
 #motiv-3{
     width:100%;
@@ -94,7 +130,7 @@ footer{
     position:absolute;
     background:black;
     height:auto;
-    width:100vh;
+    width:100%;
     padding-top:40px;
     color:white;
 }
