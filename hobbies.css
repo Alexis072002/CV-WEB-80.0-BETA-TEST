@@ -26,7 +26,7 @@ header .menu_side, .song_side {
     height: 90%;
     /* border: 1px solid whitesmoke; */
     background-color:rgb(0, 0, 0);
-    box-shadow:1px 0px 2px rgb(80, 200, 120);
+    box-shadow:1px 0px 2px rgb(108, 231, 149);
     color:white;
 }
 header .song_side{
@@ -81,7 +81,7 @@ header .menu_side .playlist h4 .bi{
     Display:none;
 }
 header .menu_side .playlist .active{
-    color:rgb(143, 236, 143)
+    color:whitesmoke;
 }
 header .menu_side .playlist .active span{
     display:none;
@@ -201,7 +201,7 @@ header .master_play h5 .subtitles{
 header .master_play .icon .bi{
     font-size:20px;
     color:#fff;
-    margin:0px -5px 0px 5px;
+    margin:0px 6px 0px 6px;
 }
 header .master_play .icon .bi{
     cursor:pointer;
@@ -210,7 +210,7 @@ header .master_play .icon .bi{
 header .master_play .icon .bi:nth-child(2){
     border:1px solid rgba(80, 200, 120, 0.1);
     border-radius:50%;
-    padding:1px 3px 0px 6px;
+    padding:1px 1px 0px 6px;
     margin:0px 5px;
     transition:0.3s linear;
 }
@@ -281,8 +281,8 @@ header .master_play .vol .bi{
     position: absolute;
     color:#fff;
     font-size: 25px;
-    top: -17px;
-    left: -30px;
+    top: -11px;
+    left: -40px;
 }
 header .master_play .vol input{
     position:absolute;
@@ -352,21 +352,25 @@ header .song_side nav ul li{
     position:relative;
     list-style: none;
     font-size:13px;
-    color:rgb(143, 236, 143);
+    color:whitesmoke;
     margin-right:25px;
     cursor:pointer;
 }
 
 header .song_side nav ul li a{
     text-decoration: none;
+    color:whitesmoke;
+}
+header .song_side nav ul li a:hover{
+    text-decoration: none;
     color:rgb(143, 236, 143);
 }
 header .song_side nav ul li:hover{
     transition: .3s linear;
-    color:whitesmoke;
+    color:rgb(143, 236, 143);
 }
 header .song_side nav ul li:nth-child(1){
-    color:whitesmoke;
+    color:rgb(143, 236, 143);
 }
 header .song_side nav ul li span{
     position:absolute;
@@ -380,7 +384,7 @@ header .song_side nav ul li span{
 header .song_side nav .search{
     position:relative;
     width:40%;
-    padding: 1px 10px;
+    padding: 1px 15px;
     border-radius:20px;
     color:gray;
 }
@@ -390,7 +394,7 @@ header .song_side nav .search::before{
     width:100%;
     height:100%;
     border-radius:20px;
-    background:rgba(35, 211, 108, 0.4);
+    background:rgba(35, 211, 108, 0.829);
     backdrop-filter: blur(5px);
     z-index:-1;
 }
@@ -431,11 +435,12 @@ header .song_side .content{
 header .song_side .content h1{
     font-size:25px;
     font-weight: 600;
+    padding-bottom:10px;
 }
 header .song_side .content p{
     font-size:11px;
     font-weight: 400;
-    color: #4c5262;
+    color: #a5a5a5;
 }
 header .song_side .content .buttons{
     margin-top:15px;
@@ -447,25 +452,25 @@ header .song_side .content .buttons button{
     border:2px solid;
     outline:none;
     border-radius:20px;
-    background:rgb(143, 236, 143);
+    background:rgba(143, 236, 143, 0.747);
     color:black;
     cursor:pointer;
     transition: .3s linear;
 }
 header .song_side .content .buttons button:hover{
 border: 2px solid rgba(143, 236, 143, 1);
-background:none;
-color:whitesmoke;
+background:whitesmoke;
+color:black;
 }
 header .song_side .content .buttons button:nth-child(2){
-    border: 2px solid rgba(143, 236, 143, 0.747);
-    background:none;
-    color:whitesmoke;
+    border: 2px solid black;
+    background:rgba(143, 236, 143, 0.747);
+    color:black;
 }
 header .song_side .content .buttons button:nth-child(2):hover{
     border: 2px solid rgba(143, 236, 143, 1);
-    background:none;
-    color:whitesmoke;
+    background:whitesmoke;
+    color:black;
 }
 header .song_side .popular_song{
     width:90%;
@@ -513,11 +518,12 @@ header .song_side .popular_song .pop_song li .img_play{
     height:100px;
     display:flex;
     align-items:center;
-    justify-content:center;s
+    justify-content:center;
 }
 header .song_side .popular_song .pop_song li .img_play img{
-    width: 100%;
-    height: 100%;
+    width: 100px;
+    height:100px;
+    padding:3px;
 }
 header .song_side .popular_song .pop_song li .img_play .bi{
     position:absolute;
@@ -567,7 +573,7 @@ header .song_side .popular_artists .h4 .bi:hover{
 header .song_side .popular_artists .item{
     width:100%;
     height:auto;
-    margin-top:10px;
+    margin-top:20px;
     display:flex;
     overflow-x:auto;
     scroll-behavior: smooth;
