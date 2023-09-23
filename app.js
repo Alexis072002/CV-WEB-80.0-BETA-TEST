@@ -60,8 +60,70 @@ const songs = [
         songName:` Lambo Ft.SVNK
         <div class="subtitles">D.Z.K</div>`,
         poster: "img/nosvies.jpg"
-    }
-   
+    },
+    {
+        id:'7',
+        title:'Petit',
+        subtitle:'DZK',
+        songName:` Petit
+        <div class="subtitles">D.Z.K</div>`,
+        poster: "img/homeless.jpg"
+    },
+    {
+        id:'8',
+        title:'Razzia',
+        subtitle:'DZK Ft.SVNKA',
+        songName:`Razzia <br> 
+        <div class="subtitles">Svnka ft. D.Z.K</div>`,
+        poster: "img/lambo.jpg"
+    },
+    {
+        id:'9',
+        title:'Never give up',
+        subtitle:'DZK',
+        songName:`Never give up 
+        <div class="subtitles">D.Z.K</div>`,
+        poster: "img/nevergiveup.jpg"
+    },
+    {
+        id:'10',
+        title:'Night',
+        subtitle:'DZK Ft.SVNKA',
+        songName: `Night
+        <div class="subtitles">D.Z.K</div>`,
+        poster: "img/night.jpg"
+    },
+    {
+        id:'11',
+        title:'Broski',
+        subtitle:'DZK',
+        songName: `Broski 
+        <div class="subtitles">D.Z.K</div>`,
+        poster: "img/broski.jpg"
+    },
+    {
+        id:'12',
+        title:'Tripes',
+        subtitle:'DZK Ft.SVNKA',
+        songName:` Tripes Ft.SVNKA 
+        <div class="subtitles">D.Z.K</div>`,
+        poster: "img/tripes.jpg"
+    },
+    {
+        id:'13',
+        title:'Lambo',
+        subtitle:'DZK Ft.SVNKA',
+        songName:` Lambo Ft.SVNK
+        <div class="subtitles">D.Z.K</div>`,
+        poster: "img/nosvies.jpg"
+    },
+    {
+        id:'14',
+        title:'Coming soon..',
+        subtitle:'DZK',
+        songName:`Coming soon..`,
+        poster:"img/comingsoon.jpg"
+    }   
 ]
 
 
@@ -80,13 +142,13 @@ let wave = document.getElementById('wave');
 masterPlay.addEventListener('click', () => {
     if (music.paused || music.currentTime <= 0) {
         music.play();
-        wave.classList.add('active1');
+        wave.classList.add('active');
         masterPlay.classList.remove('bi-play-fill');
         masterPlay.classList.add('bi-pause-fill');
     } else {
         music.pause();
-        console.log(active1);
-        wave.classList.remove('active1');
+        // console.log(active);
+        wave.classList.remove('active');
         masterPlay.classList.add('bi-play-fill');
         masterPlay.classList.remove('bi-pause-fill');
     }
@@ -111,7 +173,6 @@ let title = document.getElementById('title');
 Array.from(document.getElementsByClassName('playListPlay')).forEach((e) => {
     e.addEventListener('click', (el) => {
         index = el.target.id;
-        console.log(index);
         music.src = `audio/${index}.mp3`;
         poster_master_play = `img/${index}.jpg`;
         music.play();
@@ -136,11 +197,10 @@ Array.from(document.getElementsByClassName('playListPlay')).forEach((e) => {
         subtitleCover.textContent = songs[index].subtitle;
         imgCover.src = songs[index].poster;
         makeAllBackground();
-        Array.from(document.getElementsByClassName('songItem'))[index].style.background = "rgb(105, 105, 105, .1)";
         makeAllplays();
         el.target.classList.remove('bi-play-circle-fill');
         el.target.classList.add('bi-pause-circle-fill');
-        // wave.classList.add('active');
+        wave.classList.add('active');
     });
 })
 
@@ -191,7 +251,6 @@ let vol_dot = document.getElementById('vol_dot');
 
 
 vol.addEventListener('change', () => {
-    console.log(vol.value);
     if (vol.value == 0) {
         vol_icon.classList.remove('bi-volume-up-fill');
         vol_icon.classList.remove('bi-volume-down-fill');
@@ -199,7 +258,7 @@ vol.addEventListener('change', () => {
     }
 
     if (vol.value > 0) {
-        vol_icon.classList.remove('bi bi-volume-up-fill');
+        vol_icon.classList.remove('bi-volume-up-fill');
         vol_icon.classList.add('bi-volume-down-fill');
         vol_icon.classList.remove('bi-volume-off-fill');
     }
@@ -246,7 +305,7 @@ back.addEventListener('click', () => {
     makeAllplays();
     el.target.classList.remove('bi-play-circle-fill');
     el.target.classList.add('bi-pause-circle-fill');
-    wave.classList.add('active1');
+    wave.classList.add('active');
 })
 
 next.addEventListener('click', () => {
@@ -274,7 +333,7 @@ next.addEventListener('click', () => {
     makeAllplays();
     el.classList.remove('bi-play-circle-fill');
     el.classList.add('bi-pause-circle-fill');    
-    wave.classList.add('active1');
+    wave.classList.add('active');
 });
 
 // let pop_song_left = document.getElementById('pop_song_left');
