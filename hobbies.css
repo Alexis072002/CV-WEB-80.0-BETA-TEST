@@ -120,9 +120,21 @@ header .menu_side .menu_song li h5{
     font-size:11px;
     margin-left:15px;
 }
+.cover_container{
+    width:120px;
+    margin:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.artist{
+    color:whitesmoke;
+    font-size: 11px;
+}
 header .menu_side .menu_song li .subtitles{
     font-size:9px;
-    color: #4c5262;
+    /* color: #4c5262; */
 }
 header .menu_side .menu_song li .bi{
     position:absolute;
@@ -188,9 +200,7 @@ header .master_play img{
     height:35px;
 }
 header .master_play h5{
-    width:130px;
     font-size:13px;
-    margin-left:15px;
     color:#fff;
     line-height: 17px;
 }
@@ -386,7 +396,7 @@ header .song_side nav .search{
     width:40%;
     padding: 1px 15px;
     border-radius:20px;
-    color:gray;
+    color:rgb(255, 255, 255);
 }
 header .song_side nav .search::before{
     content:'';
@@ -407,7 +417,7 @@ header .song_side nav .search input{
     outline:none;
     border:none;
     padding: 0px 10px;
-    color:#fff;
+    /* color:#b32b2b; */
     font-size:12px;
 }
 header .song_side nav .user{
