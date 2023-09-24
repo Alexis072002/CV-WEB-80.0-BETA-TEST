@@ -1,7 +1,15 @@
 const music = new Audio('audio/7.mp3');
-// music.play();
 
-//create array 
+let activeSong = {}
+
+const updateSongInfo = (songInfo) => {
+    const songName = document.getElementById('title-cover');
+    const artist = document.getElementById('artist');
+    const poster = document.getElementById('img-cover');
+    songName.textContent = songInfo.title;
+    artist.textContent = songInfo.subtitle;    
+    poster.src = songInfo.poster;
+}
 
 const songs = [
     {
@@ -20,7 +28,6 @@ const songs = [
         <div class="subtitles">Svnka ft. D.Z.K</div>`,
         poster: "img/lambo.jpg"
     },
-    // all object type
     {
         id:'2',
         title:'Never give up',
@@ -116,20 +123,19 @@ const songs = [
         songName:` Lambo Ft.SVNK
         <div class="subtitles">D.Z.K</div>`,
         poster: "img/nosvies.jpg"
-    },
-    {
-        id:'14',
-        title:'Coming soon..',
-        subtitle:'DZK',
-        songName:`Coming soon..`,
-        poster:"img/comingsoon.jpg"
-    }   
+    }
 ]
 
 
 Array.from(document.getElementsByClassName('songItem')).forEach((e, i) => {
-    e.getElementsByTagName('img')[0].src = songs[i].poster;
-    e.getElementsByTagName('h5')[0].innerHTML = songs[i].songName;
+    const undefined_poster = "img/comingsoon.jpg"
+    if ( songs[i] && songs[i].poster !== undefined ) {
+        e.getElementsByTagName('img')[0].src = songs[i].poster;
+        e.getElementsByTagName('h5')[0].innerHTML = songs[i].songName;
+    } else {
+        e.getElementsByTagName('img')[0].src = undefined_poster
+        e.getElementsByTagName('h5')[0].src = '----------'
+    }
 
 });
 
@@ -147,7 +153,6 @@ masterPlay.addEventListener('click', () => {
         masterPlay.classList.add('bi-pause-fill');
     } else {
         music.pause();
-        // console.log(active);
         wave.classList.remove('active');
         masterPlay.classList.add('bi-play-fill');
         masterPlay.classList.remove('bi-pause-fill');
@@ -175,32 +180,19 @@ Array.from(document.getElementsByClassName('playListPlay')).forEach((e) => {
         index = el.target.id;
         music.src = `audio/${index}.mp3`;
         poster_master_play = `img/${index}.jpg`;
+        activeSong = songs[index];
+        updateSongInfo(activeSong);
         music.play();
         masterPlay.classList.remove('bi-play-fill');
         masterPlay.classList.add('bi-pause-fill');
-        // download_music.href =  `audio/${index}.mp3`;
-        let songTitles = songs.filter((els) => {
-            return els.id == index;
-        });
-
-
-        const imgCover = document.querySelector('.img_Cover');
-        
-
- // Sélectionnez l'élément h5 par sa classe
-        const titleCover = document.querySelector('.title_Cover');
-        const subtitleCover = document.querySelector('.artist');
-
-
-// Modifiez le texte de l'élément
-        titleCover.textContent = songs[index].title;
-        subtitleCover.textContent = songs[index].subtitle;
+        const imgCover = document.querySelector('#img-cover');
+        // Modifier le texte de l'élément
         imgCover.src = songs[index].poster;
         makeAllBackground();
         makeAllplays();
         el.target.classList.remove('bi-play-circle-fill');
         el.target.classList.add('bi-pause-circle-fill');
-        wave.classList.add('active');
+        wave.classList.add('active1');
     });
 })
 
@@ -218,7 +210,6 @@ music.addEventListener('timeupdate', () => {
     let min1 = Math.floor(music_dur / 60);
     let sec1 = Math.floor(music_dur % 60);
 
-    // console.log(min1);
     if (sec1 < 10) {
         sec1 = `0${sec1}`;
     }
@@ -234,7 +225,6 @@ music.addEventListener('timeupdate', () => {
 
     let progressBar = parseInt((music_curr / music_dur) * 100);
     seek.value = progressBar;
-    // console.log(seek.value);s
     let seekbar = seek.value;
     bar2.style.width = `${seekbar}%`;
     dot.style.left = `${seekbar}%`;
@@ -277,88 +267,38 @@ vol.addEventListener('change', () => {
 });
 
 
-let back = document.getElementById('back');
-let next = document.getElementById('next');
+const back = document.getElementById('back');
+const next = document.getElementById('next');
 
-back.addEventListener('click', () => {
-    index -= 1;
-    if (index < 1) {
-        index = Array.from(document.getElementsByClassName('songItem')).length;
+// targetting the icons container
+const switchSong = (direction) => {
+
+    function wrapIndex(index) {
+        const length = songs.length;
+        const wrappedIndex = ((index % length) + length) % length
+        return wrappedIndex
     }
-    music.src = `audio/${index}.mp3`;
-    poster_master_play.src = `img/${index}.jpg`;
-    music.play();
+
+    direction == 'back' ? index -= 1 : index += 1 // other approach (index += direction == 'back' ? -1 : 1)
+
+    // checking if a song was already initiated : if not, special behavior
+    index = wrapIndex(index)
+    activeSong = songs[index]
+    updateSongInfo(activeSong)
+    if (activeSong !== {}) {
+        music.src = `audio/${index}.mp3`;
+        music.play()
+    }
     masterPlay.classList.remove('bi-play-fill');
     masterPlay.classList.add('bi-pause-fill');
-
-    let songTitles = songs.filter((els) => {
-        return els.id == index;
-    });
-
-    songTitles.forEach(elss => {
-        let { songName } = elss;
-        title.innerHTML = songName;
-    });
-
-    makeAllBackground();
-    Array.from(document.getElementsByClassName('songItem'))[index - 1].style.background = "rgb(105, 105, 105, .1)";
-    makeAllplays();
-    el.target.classList.remove('bi-play-circle-fill');
-    el.target.classList.add('bi-pause-circle-fill');
     wave.classList.add('active');
-})
+}
 
-next.addEventListener('click', () => {
-    index++;
-    if (index > Array.from(document.getElementsByClassName('songItem')).length) {
-        index = 1;
-    }
-    music.src = `audio/${index}.mp3`;
-    poster_master_play.src = `img/${index}.jpg`;
-    music.play();
-    masterPlay.classList.remove('bi-play-fill');
-    masterPlay.classList.add('bi-pause-fill');
+back.addEventListener('click', () => switchSong('back'));
+next.addEventListener('click', () => switchSong('next'));
 
-    let songTitles = songs.filter((elss) => {
-        return els.id == index;
-    });
-
-    songTitles.forEach(elss => {
-        let { songName } = elss;
-        title.innerHTML = songName;
-    });
-
-    makeAllBackground();
-    Array.from(document.getElementsByClassName('songItem'))[index - 1].style.background = "rgb(105, 105, 105, .1)";
-    makeAllplays();
-    el.classList.remove('bi-play-circle-fill');
-    el.classList.add('bi-pause-circle-fill');    
-    wave.classList.add('active');
-});
-
-// let pop_song_left = document.getElementById('pop_song_left');
-// let pop_song_right = document.getElementById('pop_song_right');
 let pop_song = document.getElementsByClassName('pop_song')[0];
-
-
-// pop_song_left.addEventListener('click', () => {
-//     pop_song.scrollLeft -= 330;
-// });
-
 let pop_art_left = document.getElementById('pop_art_left');
 let pop_art_right = document.getElementById('pop_art_right');
 let Artists_bx = document.getElementsByClassName('Artists_bx')[0];
-
-
-// pop_art_right.addEventListener('click', () => {
-//     Artists_bx.scrollLeft += 330;
-// });
-// pop_art_left.addEventListener('click', () => {
-//     Artists_bx.scrollLeft -= 330;
-// });
-function newFunction() {
-    pop_song_right.addEventListener('click', () => {
-        pop_song.scrollLeft += 330;
-    });
-}
 
