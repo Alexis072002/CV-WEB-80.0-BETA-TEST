@@ -76,6 +76,10 @@ header .menu_side .playlist h4 span::before{
 }
 header .menu_side .playlist h4:hover span::before{
     border:2px solid whitesmoke;
+    color:#23d36c;
+}
+header .menu_side .playlist h4:hover{
+    color:#23d36c;
 }
 header .menu_side .playlist h4 .bi{
     Display:none;
