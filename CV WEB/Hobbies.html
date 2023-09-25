@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"  href="hobbies.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/ba83dfa81b.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<header>
+    <div class="menu_side">
+        <h1>Playlist</h1>
+        <div class="playlist">
+            <h4 class="active"><span></span><i class="bi bi-music-player"></i>Playlist</h4>
+            <h4 class="active"><span></span><i class="bi bi-music-note"></i>Dernière écoute</h4>
+            <h4 class="active"><span></span><i class="bi bi-stars"></i>Recommandations</h4>
+        </div>
+        <div class="menu_song">
+            <li class="songItem">
+                <span>01</span>
+                <img src="img/homeless.jpg">
+                <h5>
+                    Petit 
+                <div class="subtitles">D.Z.K</div>
+                </h5>
+                <i class="bi playListPlay bi-play-circle-fill" id="0" ></i>
+            </li>
+            <li class="songItem">
+                <span>02</span>
+                <img src="img/lambo.jpg" alt="">
+                <h5>
+                    Razzia Ft.SVNKA
+                <div class="subtitles">Svnka ft. D.Z.K</div>
+                </h5>
+                <i class="bi playListPlay bi-play-circle-fill" id="1" ></i>
+            </li> 
+            <li class="songItem">
+                <span>03</span>
+                <img src="img/nevergiveup.jpg" alt="">
+                <h5>
+                    Never give up 
+                <div class="subtitles">D.Z.K</div>
+                </h5>
+                <i class="bi playListPlay bi-play-circle-fill" id="2" ></i>
+            </li> 
+            <li class="songItem">
+                <span>04</span>
+                <img src="img/night.jpg" alt="">
+                <h5>
+                    Night Ft.SVNKA
+                <div class="subtitles">D.Z.K</div>
+                </h5>
+                <i class="bi playListPlay bi-play-circle-fill" id="3" ></i>
+            </li> 
+            <li class="songItem">
+                <span>05</span>
+                <img src="img/broski.jpg" alt="">
+                <h5>
+                    Broski 
+                <div class="subtitles">D.Z.K</div>
+                </h5>
+                <i class="bi playListPlay bi-play-circle-fill" id="4" ></i>
+                </li>
+                <li class="songItem">
+                    <span>06</span>
+                    <img src="img/tripes.jpg" alt="">
+                    <h5>
+                        Tripes Ft.SVNKA
+                    <div class="subtitles">D.Z.K</div>
+                    </h5>
+                    <i class="bi playListPlay bi-play-circle-fill" id="5" ></i>
+                    </li>
+                    <li class="songItem">
+                        <span>07</span>
+                        <img src="img/nosvies.jpg" alt="">
+                        <h5>
+                            Lambo Ft.SVNKA
+                        <div class="subtitles">D.Z.K</div>
+                        </h5>
+                        <i class="bi playListPlay bi-play-circle-fill" id="6" ></i>
+                        </li>
+        </div>
+    </div>
+
+
+    <div class="song_side">
+        <nav>
+            <ul>
+                <li>Découvertes <span></span></li>
+                <li>Mes musiques</li>
+                <li>RADIO</li>
+                <li id="Accueil"><a href="mainpage.html">Accueil</a></li>
+            </ul>
+            <div class="search">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="Que voulez-vous écouter ?">
+            </div>
+            <div class="user">
+                <img src="img/user.jpg" alt="User" Title="Alexis Dezeque">
+            </div>
+        </nav>
+        <div class="content">
+            <h1>DZK</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, placeat!
+            </p>
+            <div class="buttons">
+                <button>PLAY</button>
+                <button>SUIVRE</button>
+            </div>
+        </div>
+        <div class="popular_song">            
+            <div class="h4">
+                <h4>Chansons populaires</h4>
+                <div class="btn_s">
+                    <i id="left_scroll"  class="bi bi-arrow-left-short"></i>
+                    <i id="right_scroll"  class="bi bi-arrow-right-short"></i>
+                </div>
+            </div> 
+            <div class="pop_song">
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/homeless.jpg" alt="Moi">
+                        <i class="bi playListPlay bi-play-circle-fill" id="7" ></i>
+                    </div>
+                    <h5>Petit
+                        <br> 
+                    <div class="subtitles">D.Z.K</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/lambo.jpg" alt="Moi">
+                        <i class="bi playListPlay bi-play-circle-fill" id="8" ></i>
+                    </div>
+                    <h5>Razzia
+                        <br> 
+                    <div class="subtitles">D.Z.K</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/nevergiveup.jpg" alt="Moi">
+                        <i class="bi playListPlay bi-play-circle-fill" id="9" ></i>
+                    </div>
+                    <h5>Never give up
+                        <br> 
+                    <div class="subtitles">D.Z.K</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/night.jpg" alt="Moi">
+                        <i class="bi playListPlay bi-play-circle-fill" id="10" ></i>
+                    </div>
+                    <h5>Night
+                        <br> 
+                    <div class="subtitles">D.Z.K</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/broski.jpg" alt="Moi">
+                        <i class="bi playListPlay bi-play-circle-fill" id="11" ></i>
+                    </div>
+                    <h5>Broski
+                        <br> 
+                    <div class="subtitles">D.Z.K</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/tripes.jpg" alt="Moi">
+                        <i class="bi playListPlay bi-play-circle-fill" id="12" ></i>
+                    </div>
+                    <h5>Tripes
+                        <br> 
+                    <div class="subtitles">D.Z.K</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/nosvies.jpg" alt="Moi">
+                        <i class="bi playListPlay bi-play-circle-fill" id="13" ></i>
+                    </div>
+                    <h5>Lambo Ft.SVNKA
+                        <br> 
+                    <div class="subtitles">D.Z.K</div>
+                    </h5>
+                </li>
+                <!-- <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/comingsoon.jpg" alt="Moi">
+                        <i class="bi playListPlay bi-play-circle-fill" id="14" ></i>
+                    </div>
+                    <h5>Coming soon...
+                        <br> 
+                    <div class="subtitles">D.Z.K</div>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <div class="img_play">
+                        <img src="img/comingsoon.jpg" alt="Moi">
+                        <i class="bi playListPlay bi-play-circle-fill" id="15" ></i>
+                    </div>
+                    <h5>Coming soon...
+                        <br> 
+                    <div class="subtitles">D.Z.K</div>
+                    </h5>
+                </li> -->
+            </div>
+        </div>
+        <div class="popular_artists">            
+            <div class="h4">
+                <h4>Ca pourrait vous plaire...</h4>
+                <div class="btn_s">
+                    <i id="left_scrolls"  class="bi bi-arrow-left-short"></i>
+                    <i id="right_scrolls"  class="bi bi-arrow-right-short"></i>
+                </div>
+            </div> 
+            <div class="item">
+                <li>
+                    <img src="img/caba.jpg" alt="Caballero">
+                </li>
+                <li>
+                    <img src="img/demiportion.jpg" alt="Caballero">
+                </li>
+                <li>
+                    <img src="img/jeanjass.jpg" alt="Caballero">
+                </li>
+                <li>
+                    <img src="img/isha.jpg" alt="Caballero">
+                </li>
+                <li>
+                    <img src="img/Limsa.jpg" alt="Caballero">
+                </li>
+                <li>
+                    <img src="img/josman.jpg" alt="Caballero">
+                </li>
+                <li>
+                    <img src="img/damso.jpg" alt="Caballero">
+                </li>
+                <li>
+                    <img src="img/gazo.jpg" alt="Caballero">
+                </li>
+                <li>
+                    <img src="img/cabajj.jpg" alt="Caballero">
+                </li>
+                <li>
+                    <img src="img/eminem.jpg" alt="Caballero">
+                </li>
+                <li>
+                    <img src="img/freeze.jpg" alt="Caballero">
+                </li>
+                <li>
+                    <img src="img/nes.jpg" alt="Caballero">
+                </li>
+                <li>
+                    <img src="img/alpha.jpg" alt="Caballero">
+                </li>
+                <li>
+                    <img src="img/inglourious.jpg" alt="Caballero">
+                </li>
+                <li>
+                    <img src="img/lafeve.jpg" alt="Caballero">
+                </li>
+            </div>
+        </div>
+    </div>
+    <div class="master_play">
+        <div class="wave" id="wave">
+            <div class="wave1"></div>
+            <div class="wave1"></div>
+            <div class="wave1"></div>
+        </div>
+        <img id="img-cover" src="img/kid.png" alt="">
+        <div class="cover_container">
+            <h5 id="title-cover">---</h5>
+            <div id="artist">----</div>
+        </div>
+        
+        
+        <div class="icons">
+            <i class="bi bi-skip-start-fill" id="back"></i>
+            <i class="bi bi-play-fill" id="masterPlay"></i>
+            <i class="bi bi-skip-end-fill" id="next"></i>
+        </div>
+        <span id="currentStart">0:00</span>
+        <div class="bar">
+            <input type="range" id="seek" min="0" value="0" max="100">
+            <div class="bar2" id="bar2"></div>
+            <div class="dot"></div>
+        </div>
+        <span id="currentEnd">0:00</span>
+        
+        <div class="vol">
+            <i class="bi bi-volume-down-fill" id="vol_icon"></i>
+            <input type="range" id="vol" min="0" value="" max="100">
+            <div class="vol_bar"></div>
+            <div class="dot" id="vol_dot"></div>
+        </div>
+    </div>
+
+</header>
+<script src="app.js"></script>
+</body>
+</html>
