@@ -1,14 +1,18 @@
-const music = new Audio('audio/7.mp3');
+const music = new Audio('audio/0.mp3');
 
 let activeSong = {}
 
-const updateSongInfo = (songInfo) => {
+function setSongInfo(song) {
     const songName = document.getElementById('title-cover');
     const artist = document.getElementById('artist');
     const poster = document.getElementById('img-cover');
-    songName.textContent = songInfo.title;
-    artist.textContent = songInfo.subtitle;    
-    poster.src = songInfo.poster;
+    songName.textContent = song.title;
+    artist.textContent = song.subtitle;    
+    poster.src = song.poster;
+}
+
+function setSongPlayer({ src }) {
+    music.src = `audio/${src}`
 }
 
 const songs = [
@@ -18,7 +22,8 @@ const songs = [
         subtitle:'DZK',
         songName:` Petit
         <div class="subtitles">D.Z.K</div>`,
-        poster: "img/homeless.jpg"
+        poster: "img/homeless.jpg",
+        src: "0.mp3"
     },
     {
         id:'1',
@@ -26,7 +31,8 @@ const songs = [
         subtitle:'DZK Ft.SVNKA',
         songName:`Razzia <br> 
         <div class="subtitles">Svnka ft. D.Z.K</div>`,
-        poster: "img/lambo.jpg"
+        poster: "img/lambo.jpg",
+        src: "1.mp3"
     },
     {
         id:'2',
@@ -34,7 +40,8 @@ const songs = [
         subtitle:'DZK',
         songName:`Never give up 
         <div class="subtitles">D.Z.K</div>`,
-        poster: "img/nevergiveup.jpg"
+        poster: "img/nevergiveup.jpg",
+        src: "2.mp3"
     },
     {
         id:'3',
@@ -42,7 +49,8 @@ const songs = [
         subtitle:'DZK Ft.SVNKA',
         songName: `Night
         <div class="subtitles">D.Z.K</div>`,
-        poster: "img/night.jpg"
+        poster: "img/night.jpg",
+        src: "3.mp3"
     },
     {
         id:'4',
@@ -50,7 +58,8 @@ const songs = [
         subtitle:'DZK',
         songName: `Broski 
         <div class="subtitles">D.Z.K</div>`,
-        poster: "img/broski.jpg"
+        poster: "img/broski.jpg",
+        src: "4.mp3"
     },
     {
         id:'5',
@@ -58,7 +67,8 @@ const songs = [
         subtitle:'DZK Ft.SVNKA',
         songName:` Tripes Ft.SVNKA 
         <div class="subtitles">D.Z.K</div>`,
-        poster: "img/tripes.jpg"
+        poster: "img/tripes.jpg",
+        src: "5.mp3"
     },
     {
         id:'6',
@@ -66,81 +76,21 @@ const songs = [
         subtitle:'DZK Ft.SVNKA',
         songName:` Lambo Ft.SVNK
         <div class="subtitles">D.Z.K</div>`,
-        poster: "img/nosvies.jpg"
+        poster: "img/nosvies.jpg",
+        src: "6.mp3"
     },
-    {
-        id:'7',
-        title:'Petit',
-        subtitle:'DZK',
-        songName:` Petit
-        <div class="subtitles">D.Z.K</div>`,
-        poster: "img/homeless.jpg"
-    },
-    {
-        id:'8',
-        title:'Razzia',
-        subtitle:'DZK Ft.SVNKA',
-        songName:`Razzia <br> 
-        <div class="subtitles">Svnka ft. D.Z.K</div>`,
-        poster: "img/lambo.jpg"
-    },
-    {
-        id:'9',
-        title:'Never give up',
-        subtitle:'DZK',
-        songName:`Never give up 
-        <div class="subtitles">D.Z.K</div>`,
-        poster: "img/nevergiveup.jpg"
-    },
-    {
-        id:'10',
-        title:'Night',
-        subtitle:'DZK Ft.SVNKA',
-        songName: `Night
-        <div class="subtitles">D.Z.K</div>`,
-        poster: "img/night.jpg"
-    },
-    {
-        id:'11',
-        title:'Broski',
-        subtitle:'DZK',
-        songName: `Broski 
-        <div class="subtitles">D.Z.K</div>`,
-        poster: "img/broski.jpg"
-    },
-    {
-        id:'12',
-        title:'Tripes',
-        subtitle:'DZK Ft.SVNKA',
-        songName:` Tripes Ft.SVNKA 
-        <div class="subtitles">D.Z.K</div>`,
-        poster: "img/tripes.jpg"
-    },
-    {
-        id:'13',
-        title:'Lambo',
-        subtitle:'DZK Ft.SVNKA',
-        songName:` Lambo Ft.SVNK
-        <div class="subtitles">D.Z.K</div>`,
-        poster: "img/nosvies.jpg"
-    }
 ]
 
 
 Array.from(document.getElementsByClassName('songItem')).forEach((e, i) => {
-    const undefined_poster = "img/comingsoon.jpg"
     if ( songs[i] && songs[i].poster !== undefined ) {
         e.getElementsByTagName('img')[0].src = songs[i].poster;
         e.getElementsByTagName('h5')[0].innerHTML = songs[i].songName;
     } else {
-        e.getElementsByTagName('img')[0].src = undefined_poster
         e.getElementsByTagName('h5')[0].src = '----------'
     }
 
 });
-
-
-
 
 let masterPlay = document.getElementById('masterPlay');
 let wave = document.getElementById('wave');
@@ -177,11 +127,13 @@ let download_music = document.getElementById('download_music');
 let title = document.getElementById('title');
 Array.from(document.getElementsByClassName('playListPlay')).forEach((e) => {
     e.addEventListener('click', (el) => {
-        index = el.target.id;
-        music.src = `audio/${index}.mp3`;
+        index = parseInt(el.target.id);
         poster_master_play = `img/${index}.jpg`;
+
         activeSong = songs[index];
-        updateSongInfo(activeSong);
+        setSongInfo(activeSong);
+        setSongPlayer(activeSong);
+
         music.play();
         masterPlay.classList.remove('bi-play-fill');
         masterPlay.classList.add('bi-pause-fill');
@@ -228,6 +180,11 @@ music.addEventListener('timeupdate', () => {
     let seekbar = seek.value;
     bar2.style.width = `${seekbar}%`;
     dot.style.left = `${seekbar}%`;
+
+    // switch to next song when song is over
+    if (music_curr === music_dur && index !== songs.length - 1) {
+        switchSong('next');
+    }
 });
 
 seek.addEventListener('change', () => {
@@ -273,22 +230,19 @@ const next = document.getElementById('next');
 // targetting the icons container
 const switchSong = (direction) => {
 
-    function wrapIndex(index) {
-        const length = songs.length;
-        const wrappedIndex = ((index % length) + length) % length
-        return wrappedIndex
+    if (direction === 'back') {
+        index = index === 0 ? songs.length - 1 : index - 1
+    } else {
+        index = index === (songs.length - 1) ? 0 : index + 1
     }
 
-    direction == 'back' ? index -= 1 : index += 1 // other approach (index += direction == 'back' ? -1 : 1)
-
-    // checking if a song was already initiated : if not, special behavior
-    index = wrapIndex(index)
     activeSong = songs[index]
-    updateSongInfo(activeSong)
-    if (activeSong !== {}) {
-        music.src = `audio/${index}.mp3`;
-        music.play()
-    }
+
+    setSongInfo(activeSong)
+    setSongPlayer(activeSong)
+
+    music.play()
+
     masterPlay.classList.remove('bi-play-fill');
     masterPlay.classList.add('bi-pause-fill');
     wave.classList.add('active');
@@ -301,4 +255,3 @@ let pop_song = document.getElementsByClassName('pop_song')[0];
 let pop_art_left = document.getElementById('pop_art_left');
 let pop_art_right = document.getElementById('pop_art_right');
 let Artists_bx = document.getElementsByClassName('Artists_bx')[0];
-

@@ -49,11 +49,11 @@ header{
     padding:10px 15px;
 }
 .navbar ul li a:hover{
-    background-color:black;
+    background-color:rgb(187, 1, 1);
     color:white;
 }
 .navbar ul li a.active{
-    background-color:black;
+    background-color:rgb(187, 1, 1);
     color:white;
 }
 
